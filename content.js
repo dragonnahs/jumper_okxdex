@@ -2,7 +2,7 @@
  * @Author: shanlonglong danlonglong@weimiao.cn
  * @Date: 2025-03-11 11:31:27
  * @LastEditors: shanlonglong danlonglong@weimiao.cn
- * @LastEditTime: 2025-05-09 10:11:17
+ * @LastEditTime: 2025-05-09 10:29:46
  * @FilePath: \jumper_okxdex\content.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -78,10 +78,15 @@ async function addOKXButton() {
   buttonContainer.appendChild(okxButton);
 
   // Find a suitable location to insert the button
-  const targetElement = document.querySelector('#MainDomId');
-  if (targetElement) {
-    targetElement.parentNode.insertBefore(buttonContainer, targetElement.nextSibling);
-  }
+  const links = document.querySelectorAll('.css-ekmcyu a');
+  links.forEach(link => {
+    // 2. 找到其中包含 span 且内容是“关于GMGN”的 a 标签
+    const span = link.querySelector('span');
+    if (span && span.textContent.trim() === '关于GMGN') {
+      // 4. 替换整个 a 元素
+      link.replaceWith(okxButton);
+    }
+  });
 }
 
 // Run when DOM is loaded
