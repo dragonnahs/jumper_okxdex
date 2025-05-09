@@ -2,7 +2,7 @@
  * @Author: shanlonglong danlonglong@weimiao.cn
  * @Date: 2025-03-11 11:31:27
  * @LastEditors: shanlonglong danlonglong@weimiao.cn
- * @LastEditTime: 2025-03-12 13:48:21
+ * @LastEditTime: 2025-05-09 10:11:17
  * @FilePath: \jumper_okxdex\content.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -50,7 +50,7 @@ async function addOKXButton() {
 
   // Create button with dynamic OKX URL using chainId from API
   const okxButton = document.createElement('a');
-  okxButton.href = `http://47.94.226.174:8080/okx?address=${tokenAddress}`;
+  okxButton.href = `https://web3.okx.com/zh-hans/token/solana/${tokenAddress}`;
   okxButton.target = '_blank';
   okxButton.style.cssText = `
     display: inline-flex;
@@ -78,7 +78,7 @@ async function addOKXButton() {
   buttonContainer.appendChild(okxButton);
 
   // Find a suitable location to insert the button
-  const targetElement = document.querySelector('.css-j7qwjs');
+  const targetElement = document.querySelector('#MainDomId');
   if (targetElement) {
     targetElement.parentNode.insertBefore(buttonContainer, targetElement.nextSibling);
   }
